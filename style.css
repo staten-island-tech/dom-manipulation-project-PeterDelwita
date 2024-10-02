@@ -21,6 +21,7 @@ body, html, *{
 
 h1 {
     font: 1.2rem "Roboto", sans-serif;
+    justify-content: center;
 }
 
 .container {
