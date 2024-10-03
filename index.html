@@ -6,23 +6,24 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Soft Drink Generator</h1>
+    <h1 class="main-header">Soft Drink Generator</h1>
+    <form action="" class="form"></form>
+      <!--Create form in HTML and make the card in CSS first-->
+      <input type="text" name="name" id="name" />
+      <button class="button">Submit</button>
+    </form>
     <div class="container">
       <div class="card">
         <h2 class="card-header">Soda Name</h2>
-        <ul>
-          <li>item 1</li>
-          <li>item 2</li>
-          <li>item 3</li>
+        <img class="card-img" src="" alt="soda">
+        <ul class="list">
+          <li id="name">Name</li>
+          <li id="company">Company</li>
+          <li id="rating">Rating</li>
         </ul>
       </div>
-
-      <form action="" class="form">
-        <!--Create form in HTML and make the card in CSS first-->
-        <input type="text" name="name" id="name" />
-        <button class="button">Submit</button>
-      </form>
     </div>
+
     <script src="index.js"></script>
     <!--HTML loads before Java-->
   </body>
