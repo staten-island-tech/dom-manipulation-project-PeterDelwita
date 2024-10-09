@@ -5,4 +5,9 @@ const DOMSelectors = {
   item: document.querySelector("li"),
   button: document.querySelector("button"),
   list: document.querySelector("ul"),
+  container: document.querySelector("container"),
 };
+
+DOMSelectors.button.addEventListener("click", function (event) {
+  console.log(event.target);
+});
