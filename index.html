@@ -13,12 +13,12 @@
       <!--Soda's name-->
       <div class="form-input">
         <label for="name">What is the soda's name?</label>
-        <input type="text" name="name" id="name" required />
+        <input type="text" name="name" placeholder="Soda Name" id="name" required />
       </div>
       <!--Company-->
       <div class="form-input">
         <label for="company">What company owns the soda?</label>
-        <input type="text" name="company" id="company" required />
+        <input type="text" name="company" placeholder="Soda Company" id="company" required />
       </div>
       <!--Rating-->
       <div class="form-input">
@@ -26,6 +26,7 @@
         <input
           type="number"
           name="rating"
+          placeholder="Rating (1 to 5)"
           id="rating"
           min="1"
           max="5"
@@ -37,16 +38,15 @@
     </form>
     <!--Card-->
     <div class="container">
-      <div class="card">
+      <!--<div class="card">
         <h2 class="card-header">Soda Name</h2>
         <img class="card-img" src="" alt="soda" />
         <ul class="list">
-          <li id="name">Name</li>
           <li id="company">Company</li>
           <li id="rating">Rating</li>
         </ul>
       </div>
-    </div>
+    </div>-->
 
     <script src="index.js"></script>
     <!--HTML loads before Java-->
