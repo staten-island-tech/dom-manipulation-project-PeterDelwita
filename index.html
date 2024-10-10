@@ -9,24 +9,37 @@
     <!--Header-->
     <h1 class="main-header">Soft Drink Generator</h1>
     <!--Form and Inputs-->
-    <form action="" class="form"></form>
-    <!--Soda's name-->
-      <h2 class="name">What is the soda's name?</h2>
-      <input type="text" name="name" id="name" />
+    <form action="" class="form">
+      <!--Soda's name-->
+      <div class="form-input">
+        <label for="name">What is the soda's name?</label>
+        <input type="text" name="name" id="name" required />
+      </div>
       <!--Company-->
-      <h2 class="company">What company owns the soda?</h2>
-      <input type="text" name="company" id="company" />
+      <div class="form-input">
+        <label for="company">What company owns the soda?</label>
+        <input type="text" name="company" id="company" required />
+      </div>
       <!--Rating-->
-      <h2 class="rating">How would you rate it on a scale of 1 to 5?</h2>
-      <input type="text" name="rating" id="rating" />
+      <div class="form-input">
+        <label for="rating">How would you rate it on a scale of 1 to 5?</label>
+        <input
+          type="number"
+          name="rating"
+          id="rating"
+          min="1"
+          max="5"
+          required
+        />
+      </div>
       <!--Button-->
       <button class="button">Submit</button>
     </form>
     <!--Card-->
-    <div class="container"> 
+    <div class="container">
       <div class="card">
         <h2 class="card-header">Soda Name</h2>
-        <img class="card-img" src="" alt="soda">
+        <img class="card-img" src="" alt="soda" />
         <ul class="list">
           <li id="name">Name</li>
           <li id="company">Company</li>

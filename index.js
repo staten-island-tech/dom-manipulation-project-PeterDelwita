@@ -9,5 +9,16 @@ const DOMSelectors = {
 };
 
 DOMSelectors.button.addEventListener("click", function (event) {
-  console.log(event.target);
+  console.log(event.target.parentElement);
 });
+
+DOMSelectors.form.addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent refreshing
+  console.log(document.querySelector("input").value);
+});
+
+let soda = {
+  name: "Coca-Cola",
+  company: "The Coca-Cola Company",
+  rating: 5,
+};

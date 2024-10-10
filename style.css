@@ -36,11 +36,35 @@ body {
   text-align: center;
 }
 
-.form {
+/* .form {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+} */
+
+.form {
+  display: table;
 }
 
+form.form-input {
+  display: table-row;
+}
+
+label,
+input {
+  display: table-cell;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+label {
+  padding-right: 10px;
+}
+
+button {
+  font-size: 14px;
+}
 /* Container */
 
 .container {
