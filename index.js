@@ -9,7 +9,7 @@ const DOMSelectors = {
 };
 
 DOMSelectors.button.addEventListener("click", function (event) {
-  console.log(event.target.parentElement);
+  console.log(event.target);
 });
 
 DOMSelectors.form.addEventListener("submit", function (event) {
