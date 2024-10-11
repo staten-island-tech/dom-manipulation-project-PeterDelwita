@@ -1,36 +1,46 @@
 const DOMSelectors = {
   header: document.querySelector("h1"),
-  cardheader: document.querySelector(".card-header"),
-  form: document.querySelector("form"),
+  cardHeader: document.querySelector(".card-header"),
+  form: document.querySelector(".form"),
   item: document.querySelectorAll("li"),
-  button: document.querySelector("button"),
+  button: document.querySelector(".button"),
   list: document.querySelector("ul"),
-  container: document.querySelector("container"),
+  container: document.querySelector(".container"),
+  input: document.querySelector("input"),
+  inputName: document.querySelector("#name"),
+  inputCompany: document.querySelector("#company"),
+  inputRating: document.querySelector("#rating"),
 };
 
-DOMSelectors.button.addEventListener("click", function (event) {
-  console.log(event.target);
-});
+function createSodaCard(soda) {
+  DOMSelectors.container.insertAdjacentHTML(
+    "beforeend",
+    `<div class="card">
+      <h2 class="card-header">${soda.name}</h2>
+      <img class="card-img" src="" alt="${soda.name}" />
+      <ul class="list">
+        <li id="company">${soda.company}</li>
+        <li id="rating">${soda.rating}</li>
+      </ul>
+    </div>`
+  );
+}
 
-DOMSelectors.form.addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent refreshing
-  console.log(document.querySelector("input").value);
-});
+function buttonClick(event) {
+  console.log("Button clicked:", event.target);
+}
 
-let soda = {
-  name: "Coca-Cola",
-  company: "The Coca-Cola Company",
-  rating: 5,
-};
+function submitForm(event) {
+  // Creates a soda card using the inputs
+  event.preventDefault();
+  const soda = {
+    name: DOMSelectors.inputName.value,
+    company: DOMSelectors.inputCompany.value,
+    rating: parseInt(DOMSelectors.inputRating.value, 10), // parseInt converts a string to an integer. It goes as follows: parseInt(string, radix), where the radix is the base of the string (so if the radix is 2, the number will be written in binary)
+  };
+  createSodaCard(soda);
+  console.log(DOMSelectors.input.value);
+}
 
-DOMSelectors.container.insertAdjacentHTML(
-  "beforeend",
-  `<div class="card">
-    <h2 class="card-header">${soda.name}</h2>
-    <img class="card-img" src="" alt="soda" />
-    <ul class="list">
-      <li id="company">${soda.company}</li>
-      <li id="rating">${soda.rating}</li>
-    </ul>
-  </div>`
-);
+DOMSelectors.button.addEventListener("click", buttonClick);
+DOMSelectors.form.addEventListener("submit", submitForm);
