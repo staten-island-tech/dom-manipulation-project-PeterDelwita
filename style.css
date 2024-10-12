@@ -114,6 +114,10 @@ button {
   object-fit: contain;
 }
 
+ul {
+  list-style-type: none; /* Removes bullet points from list elements */
+}
+
 li {
   font-size: 16px;
   font-weight: 400;
@@ -138,9 +142,18 @@ li {
 
 @media screen and (max-width: 720px) {
   .card {
-    width: 40%;
+    width: 45%;
   }
   .main-header {
     font-size: 30px;
+  }
+  li {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 90%;
   }
 }
