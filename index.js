@@ -13,6 +13,7 @@ const DOMSelectors = {
   inputImage: document.querySelector("#image"),
 };
 
+// Make or remove the card
 function createSodaCard(soda) {
   // Handle HTML as a variable for more efficient code
   const cardHTML = `
@@ -22,10 +23,12 @@ function createSodaCard(soda) {
         soda.image || "image/placeholder.jpeg"
       }" alt="${soda.name}" />
       <ul class="list"> 
-        <li id="company">${soda.company}</li>
-        <li id="rating">${soda.rating} out of 5</li>
+        <li id="company">Company: ${soda.company}</li>
+        <li id="rating">Rating: ${soda.rating} out of 5</li>
       </ul>
-      <button class="remove-button">Remove</button> 
+      <div class="button container">
+        <button class="remove-button">Remove</button>
+      </div> 
     </div>`;
   DOMSelectors.container.insertAdjacentHTML("beforeend", cardHTML);
 
@@ -43,6 +46,7 @@ function removeSodaCard(event) {
   }
 }
 
+// Handle buttons and form
 function handleButtonClick(event) {
   console.log("Button clicked:", event.target);
 }
@@ -58,7 +62,14 @@ function submitForm(event) {
   };
 
   createSodaCard(soda);
-  console.log(DOMSelectors.input.value);
+  console.log(
+    "Name:",
+    DOMSelectors.inputName.value,
+    "Company:",
+    DOMSelectors.inputCompany.value,
+    "Rating:",
+    DOMSelectors.inputRating.value
+  );
 
   // Resets input values after submission; done after card is created and inputs are logged
   DOMSelectors.inputName.value = "";
@@ -69,5 +80,18 @@ function submitForm(event) {
   }
 }
 
+// Calls functions
 DOMSelectors.button.addEventListener("click", handleButtonClick);
 DOMSelectors.form.addEventListener("submit", submitForm);
+
+// Log button data
+const buttons = document.querySelectorAll("button");
+console.log(buttons);
+const buttonData = Array.from(buttons);
+console.log(buttonData);
+
+buttonData.forEach((button) =>
+  button.addEventListener("click", function (event) {
+    console.log(event.target.textContent);
+  })
+);

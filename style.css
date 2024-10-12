@@ -25,15 +25,17 @@ html,
 
 body {
   font-family: "Roboto", sans-serif;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(104, 76, 16, 0.75)),
+    url("image/backgroundimage.png");
 }
 
 /* Header and Form */
 
 .main-header {
-  font: 40px "Roboto", sans-serif;
   font-weight: 900;
   font-size: 40px;
   text-align: center;
+  color: rgb(255, 255, 255);
 }
 
 /* .form {
@@ -42,6 +44,11 @@ body {
   align-items: center;
   flex-flow: row wrap;
 } */
+
+.form-container {
+  display: flex;
+  justify-content: center;
+}
 
 .form {
   display: table;
@@ -59,6 +66,7 @@ input {
 }
 
 label {
+  color: rgb(255, 255, 255);
   padding-right: 10px;
 }
 
@@ -79,8 +87,8 @@ button {
 
 /* Card */
 .card {
+  height: 30rem;
   width: 22%;
-  height: 20rem;
   margin: 2rem auto;
   padding: 4rem auto;
   border: 3px solid black;
@@ -90,12 +98,12 @@ button {
   justify-content: center;
   align-items: center;
   background-color: rgb(241, 150, 4);
+  background-image: cover;
 }
 
 .card-header {
   margin-top: 1.2rem;
-  font: 20px "Roboto" sans-serif;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 900;
   text-align: center;
 }
@@ -106,8 +114,33 @@ button {
   object-fit: contain;
 }
 
-.list {
-  font: 10px "Roboto" sans-serif;
-  font-size: 20px;
+li {
+  font-size: 16px;
   font-weight: 400;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1200px) {
+  .card {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .card {
+    width: 40%;
+  }
+  .card-header {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .card {
+    width: 40%;
+  }
+  .main-header {
+    font-size: 30px;
+  }
 }

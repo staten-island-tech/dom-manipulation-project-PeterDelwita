@@ -10,39 +10,39 @@
     <h1 class="main-header">Soft Drink Generator</h1>
 
     <!--Form and Inputs-->
-    
-    <form action="" class="form">
-      <!--Soda's name-->
-      <div class="form-input">
-        <label for="name">What is the soda's name?</label>
-        <input type="text" name="name" placeholder="Soda Name" id="name" required />
-      </div>
-      <!--Company-->
-      <div class="form-input">
-        <label for="company">What company owns the soda?</label>
-        <input type="text" name="company" placeholder="Soda Company" id="company" required />
-      </div>
-      <!--Rating-->
-      <div class="form-input">
-        <label for="rating">How would you rate it on a scale of 1 to 5?</label>
-        <input
-          type="number"
-          name="rating"
-          placeholder="Rating (1 to 5)"
-          id="rating"
-          min="1"
-          max="5"
-          required
-        />
-      </div>
-
-      <div class="form-input">
-        <label for="image">Enter image URL:</label>
-        <input type="text" name="image" placeholder="image/placeholder.jpeg" id="image" />
-      </div>
-      <!--Button-->
-      <button class="button" type="submit">Submit</button>
-    </form>
+    <div class="form-container">
+      <form action="" class="form">
+        <!--Soda's name-->
+        <div class="form-input">
+          <label for="name">What is the soda's name?</label>
+          <input type="text" name="name" placeholder="Soda Name" id="name" required />
+        </div>
+        <!--Company-->
+        <div class="form-input">
+          <label for="company">What company owns the soda?</label>
+          <input type="text" name="company" placeholder="Soda Company" id="company" required />
+        </div>
+        <!--Rating-->
+        <div class="form-input">
+          <label for="rating">How would you rate it on a scale of 1 to 5?</label>
+          <input
+            type="number"
+            name="rating"
+            placeholder="Rating (1 to 5)"
+            id="rating"
+            min="1"
+            max="5"
+            required
+          />
+        </div>
+        <div class="form-input">
+          <label for="image">Enter image URL:</label>
+          <input type="text" name="image" placeholder="image/placeholder.jpeg" id="image" />
+        </div>
+        <!--Button-->
+        <button class="button" type="submit">Submit</button>
+      </form>
+    </div>
     
     <!--Card-->
     <div class="container">
