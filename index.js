@@ -27,16 +27,10 @@ function createSodaCard(soda) {
         <li id="rating">Rating: ${soda.rating} out of 5</li>
       </ul>
       <div class="button container">
-        <button class="remove-button">Remove</button>
+        <button class="remove-button" data-action="remove">Remove</button>
       </div> 
     </div>`;
   DOMSelectors.container.insertAdjacentHTML("beforeend", cardHTML);
-
-  // Added removeButton to this function because it would allow every card to come with a Remove button (remove cards independently)
-  const removeButton = DOMSelectors.container.querySelector(
-    ".card:last-child .remove-button" // last-child refers to the last child of the parent element, specifically the last card, so .remove-button targets the last card in the container
-  );
-  removeButton.addEventListener("click", removeSodaCard); // Ensures that clicking the remove button will call the function below and remove the card
 }
 
 function removeSodaCard(event) {
@@ -46,10 +40,12 @@ function removeSodaCard(event) {
   }
 }
 
-// Handle buttons and form
+// Handle buttons
 function handleButtonClick(event) {
   console.log("Button clicked:", event.target);
 }
+
+// Handling the form
 
 function submitForm(event) {
   // Creates a soda card using the inputs
@@ -60,7 +56,6 @@ function submitForm(event) {
     rating: parseInt(DOMSelectors.inputRating.value, 10), // parseInt converts a string to an integer. It goes as follows: parseInt(string, radix), where the radix is the base of the string (so if the radix is 2, the number will be written in binary)
     image: DOMSelectors.inputImage ? DOMSelectors.inputImage.value.trim() : "", // Uses a ternary operator, which works like this: condition ? valueiftrue : valueiffalse. If an image is submitted, it will put it in the card without the whitespace, but if there is no image submitted, it will assign an empty string
   };
-
   createSodaCard(soda);
   console.log(
     "Name:",
@@ -70,8 +65,10 @@ function submitForm(event) {
     "Rating:",
     DOMSelectors.inputRating.value
   );
+}
 
-  // Resets input values after submission; done after card is created and inputs are logged
+// Resets input values after submission; done after card is created and inputs are logged
+function clearInputs() {
   DOMSelectors.inputName.value = "";
   DOMSelectors.inputCompany.value = "";
   DOMSelectors.inputRating.value = "";
@@ -81,8 +78,17 @@ function submitForm(event) {
 }
 
 // Calls functions
-DOMSelectors.button.addEventListener("click", handleButtonClick);
-DOMSelectors.form.addEventListener("submit", submitForm);
+DOMSelectors.button.addEventListener("click", function (event) {
+  handleButtonClick(event);
+});
+DOMSelectors.form.addEventListener("submit", function (event) {
+  submitForm(event), clearInputs();
+});
+DOMSelectors.container.addEventListener("click", (event) => {
+  if (event.target.dataset.action === "remove") {
+    removeSodaCard(event);
+  }
+});
 
 // Log button data
 const buttons = document.querySelectorAll("button");
