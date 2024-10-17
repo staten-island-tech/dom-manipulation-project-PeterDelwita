@@ -14,6 +14,15 @@ const DOMSelectors = {
 };
 
 // Make or remove the card
+function storeObject() {
+  const soda = {
+    name: DOMSelectors.inputName.value.trim(), // trim removes whitespace
+    company: DOMSelectors.inputCompany.value.trim(),
+    rating: parseInt(DOMSelectors.inputRating.value, 10), // parseInt converts a string to an integer. It goes as follows: parseInt(string, radix), where the radix is the base of the string (so if the radix is 2, the number will be written in binary)
+    image: DOMSelectors.inputImage ? DOMSelectors.inputImage.value.trim() : "", // Uses a ternary operator, which works like this: condition ? valueiftrue : valueiffalse. If an image is submitted, it will put it in the card without the whitespace, but if there is no image submitted, it will assign an empty string
+  };
+}
+
 function createSodaCard(soda) {
   // Handle HTML as a variable for more efficient code
   const cardHTML = `
@@ -47,16 +56,19 @@ function handleButtonClick(event) {
 
 // Handling the form
 
-function submitForm(event) {
-  // Creates a soda card using the inputs
-  event.preventDefault();
-  const soda = {
-    name: DOMSelectors.inputName.value.trim(), // trim removes whitespace
-    company: DOMSelectors.inputCompany.value.trim(),
-    rating: parseInt(DOMSelectors.inputRating.value, 10), // parseInt converts a string to an integer. It goes as follows: parseInt(string, radix), where the radix is the base of the string (so if the radix is 2, the number will be written in binary)
-    image: DOMSelectors.inputImage ? DOMSelectors.inputImage.value.trim() : "", // Uses a ternary operator, which works like this: condition ? valueiftrue : valueiffalse. If an image is submitted, it will put it in the card without the whitespace, but if there is no image submitted, it will assign an empty string
-  };
-  createSodaCard(soda);
+// function submitForm(event) {
+//   // Creates a soda card using the inputs
+//   event.preventDefault();
+//   // const soda = {
+//   //   name: DOMSelectors.inputName.value.trim(), // trim removes whitespace
+//   //   company: DOMSelectors.inputCompany.value.trim(),
+//   //   rating: parseInt(DOMSelectors.inputRating.value, 10), // parseInt converts a string to an integer. It goes as follows: parseInt(string, radix), where the radix is the base of the string (so if the radix is 2, the number will be written in binary)
+//   //   image: DOMSelectors.inputImage ? DOMSelectors.inputImage.value.trim() : "", // Uses a ternary operator, which works like this: condition ? valueiftrue : valueiffalse. If an image is submitted, it will put it in the card without the whitespace, but if there is no image submitted, it will assign an empty string
+//   // };
+//   // createSodaCard(soda);
+// }
+
+function logSoda() {
   console.log(
     "Name:",
     DOMSelectors.inputName.value,
@@ -77,13 +89,19 @@ function clearInputs() {
   }
 }
 
-// Calls functions
+// Call functions - Handle button
 DOMSelectors.button.addEventListener("click", function (event) {
   handleButtonClick(event);
 });
+// Handle form
 DOMSelectors.form.addEventListener("submit", function (event) {
-  submitForm(event), clearInputs();
+  event.preventDefault(),
+    storeObject(),
+    createSodaCard(soda),
+    logSoda(),
+    clearInputs();
 });
+// Handle remove button
 DOMSelectors.container.addEventListener("click", (event) => {
   if (event.target.dataset.action === "remove") {
     removeSodaCard(event);
