@@ -1,12 +1,10 @@
 const DOMSelectors = {
-  header: document.querySelector("h1"),
   cardHeader: document.querySelector(".card-header"),
   form: document.querySelector(".form"),
   item: document.querySelectorAll("li"),
   button: document.querySelector(".button"),
   list: document.querySelector("ul"),
   container: document.querySelector(".container"),
-  input: document.querySelector("input"),
   inputName: document.querySelector("#name"),
   inputCompany: document.querySelector("#company"),
   inputRating: document.querySelector("#rating"),
@@ -14,16 +12,15 @@ const DOMSelectors = {
 };
 
 // Make or remove the card
-function storeObject() {
-  const soda = {
+
+function createSodaCard() {
+  let soda = {
+    // Create the object
     name: DOMSelectors.inputName.value.trim(), // trim removes whitespace
     company: DOMSelectors.inputCompany.value.trim(),
     rating: parseInt(DOMSelectors.inputRating.value, 10), // parseInt converts a string to an integer. It goes as follows: parseInt(string, radix), where the radix is the base of the string (so if the radix is 2, the number will be written in binary)
     image: DOMSelectors.inputImage ? DOMSelectors.inputImage.value.trim() : "", // Uses a ternary operator, which works like this: condition ? valueiftrue : valueiffalse. If an image is submitted, it will put it in the card without the whitespace, but if there is no image submitted, it will assign an empty string
   };
-}
-
-function createSodaCard(soda) {
   // Handle HTML as a variable for more efficient code
   const cardHTML = `
     <div class="card">
@@ -95,11 +92,7 @@ DOMSelectors.button.addEventListener("click", function (event) {
 });
 // Handle form
 DOMSelectors.form.addEventListener("submit", function (event) {
-  event.preventDefault(),
-    storeObject(),
-    createSodaCard(soda),
-    logSoda(),
-    clearInputs();
+  event.preventDefault(), createSodaCard(), logSoda(), clearInputs();
 });
 // Handle remove button
 DOMSelectors.container.addEventListener("click", (event) => {
